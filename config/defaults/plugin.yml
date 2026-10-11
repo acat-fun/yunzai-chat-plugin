@@ -1,0 +1,85 @@
+schemaVersion: 1
+revision: r-1
+plugin:
+  enabled: true
+admin:
+  mode: standalone
+  guoba:
+    enabled: true
+    trustHostAdministrators: true
+  standalone:
+    enabled: true
+    host: 127.0.0.1
+    port: 50931
+    auth:
+      mode: owner-password
+      passwordSecretRef: ''
+providers:
+  - id: default-gateway
+    displayName: 默认网关
+    enabled: true
+    baseUrl: https://api.deepseek.com
+    protocol: openai-chat-completions
+    auth:
+      mode: api-key
+      secretRef: ''
+      maskedHint: ''
+    models:
+      - id: deepseek-chat
+        displayName: DeepSeek Chat
+        contextWindowTokens: 128000
+        maxOutputTokens: 8192
+        inputTypes: [text]
+prompts:
+  - id: default-assistant
+    name: 默认助手
+    enabled: true
+    content: 你是一个简洁、友好的聊天助手。请清晰回答用户的问题。
+defaults:
+  route: default-gateway|deepseek-chat
+  fallbackRoutes: []
+  prompt: default-assistant
+  regex: ''
+  alwaysPrivate: false
+  reasoning: auto
+  webEnabled: false
+  replyImages: false
+  replyFiles: false
+  contextCount: 20
+  contextAgeMinutes: 30
+  groupRandom: false
+  replyProbability: 5
+policies: []
+access:
+  owner:
+    platform: qq
+    userId: ''
+  admins: []
+  chatWhitelist: []
+  chatBlacklist: []
+runtime:
+  queue:
+    maxPendingPerSession: 3
+    maxConcurrentGlobal: 4
+  limits:
+    perUserRequestsPerMinute: 10
+    globalRequestsPerMinute: 60
+  llm:
+    requestTimeoutSeconds: 60
+    maxAttempts: 1
+  context:
+    storage: memory
+    cacheTtlSeconds: 86400
+
+# 原生搜索优先，失败后使用自带免密钥搜索；模型 toolCalling 控制联网。
+web:
+  engineOrder: [exa-mcp, duckduckgo, bing]
+  enabled: false
+  searchProviderId: ''
+  providers: []
+  searchTimeoutSeconds: 30
+  fetchTimeoutSeconds: 30
+  maxFetchChars: 200000
+  maxToolCalls: 8
+  maxToolRounds: 4
+  agentTimeoutSeconds: 120

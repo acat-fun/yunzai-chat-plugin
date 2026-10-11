@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; font-src data:; img-src data:;">
+  <style>{{@mathStyles}}</style>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; width: max-content; background: #f3f5f7; color: #243041; font: 26px/1.7 'Noto Sans CJK SC', 'Microsoft YaHei', sans-serif; }
+    #container { min-width: 960px; width: max-content; padding: 38px 44px; background: #fff; }
+    .label { color: #748094; font-size: 17px; border-bottom: 1px solid #e5e9ef; padding-bottom: 14px; margin-bottom: 24px; }
+    p, ul, ol, blockquote { max-width: 872px; overflow-wrap: anywhere; }
+    p { margin: 16px 0; }
+    h1, h2, h3 { margin: 26px 0 12px; line-height: 1.4; max-width: 872px; overflow-wrap: anywhere; }
+    h1 { font-size: 36px; } h2 { font-size: 31px; } h3 { font-size: 28px; }
+    table { width: 872px; table-layout: fixed; border-collapse: collapse; margin: 22px 0; font-size: 23px; }
+    th, td { padding: 12px 16px; border: 1px solid #dbe2eb; overflow-wrap: anywhere; }
+    th { background: #edf2f8; text-align: left; } tbody tr:nth-child(even) { background: #f8fafc; }
+    pre { width: 872px; margin: 20px 0; padding: 22px; border: 1px solid #dce3ec; border-radius: 12px; background: #f5f7fa; white-space: pre-wrap; overflow-wrap: anywhere; }
+    code { font: 22px/1.65 'Noto Sans Mono', 'Consolas', monospace; background: #f0f3f7; padding: 2px 5px; border-radius: 4px; }
+    pre code { padding: 0; background: none; }
+    blockquote { margin: 18px 0; padding-left: 22px; border-left: 4px solid #ccd8e7; color: #5d6b7e; }
+    a { color: #245fa4; text-decoration: none; }
+    eq { display: inline; } eqn { display: block; padding: 16px 0; }
+    .katex-display { margin: 12px 0; text-align: left; } .katex { font-size: 1.15em; }
+  </style>
+</head>
+<body><main id="container"><div class="label">AI 回复</div><article class="markdown">{{@html}}</article></main></body>
+</html>

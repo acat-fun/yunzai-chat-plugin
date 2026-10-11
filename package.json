@@ -1,0 +1,58 @@
+{
+  "name": "yunzai-chat-plugin",
+  "version": "0.1.0",
+  "description": "兼容 OpenAI / Anthropic 协议的 Yunzai 自动聊天插件",
+  "type": "module",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "apps/",
+    "dist/**/*.js",
+    "dist/**/*.d.ts",
+    "resources/",
+    "guoba.support.js",
+    "admin-ui/dist/",
+    "config/defaults/",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && npm run build:admin",
+    "build:admin": "npm run build --prefix admin-ui",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "dev:build": "tsc -p tsconfig.json --watch --preserveWatchOutput",
+    "build:server": "tsc -p tsconfig.json",
+    "pretest": "npm run build:server",
+    "test": "node --test tests/unit/*.test.mjs",
+    "check:release": "node scripts/check-release.mjs",
+    "prepare:yunzai": "node scripts/link-yunzai.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@langchain/core": "1.1.48",
+    "@langchain/langgraph": "1.4.21",
+    "ipaddr.js": "^2.5.0",
+    "katex": "^0.16.47",
+    "linkedom": "^0.18.13",
+    "markdown-it": "^14.3.2",
+    "markdown-it-texmath": "^1.0.0",
+    "turndown": "^7.2.4",
+    "yaml": "^2.7.1",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@types/markdown-it": "^14.2.0",
+    "@types/node": "^22.13.10",
+    "@types/turndown": "^5.0.6",
+    "typescript": "^5.8.2"
+  },
+  "keywords": [
+    "yunzai",
+    "plugin",
+    "openai",
+    "anthropic",
+    "chat"
+  ],
+  "license": "UNLICENSED"
+}

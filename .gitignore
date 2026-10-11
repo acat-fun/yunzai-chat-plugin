@@ -1,0 +1,17 @@
+node_modules/
+admin-ui/node_modules/
+# 原生 Git 更新不会编译，运行产物随源码提交。
+dist/**/*.map
+admin-ui/*.tsbuildinfo
+data/
+.dependency-backups/
+*.tmp
+.local-checks/
+*.tgz
+
+# 文档与测试仅保留本地。
+/docs/
+/test/
+/tests/
+
+/项目文档.md
